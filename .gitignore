@@ -4,3 +4,7 @@
 
 # Compile / Output files
 /target/
+
+**/.DS_Store
+.DS_Store
+DS_Store
