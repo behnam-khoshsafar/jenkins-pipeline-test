@@ -2,7 +2,7 @@ pipeline {
 
     agent {
         node {
-            label 'cool-agent'
+            label 'master'
         }
     }
 
@@ -28,7 +28,6 @@ pipeline {
             steps {
                 checkout([
                     $class: 'GitSCM',
-                    branches: [[name: '*/master']],
                     userRemoteConfigs: [[url: 'https://github.com/behnam-khoshsafar/jenkins-pipeline-test.git']]
                 ])
             }
