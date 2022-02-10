@@ -4,10 +4,12 @@
 #Pipeline behaviour config
 
 1- `Exclude branches that are also filed as PRs`
-* If you are discovering origin pull requests, you may not want to also build the source branches for those pull requests, but it's going to build the branch for each push before creating a pull request, and if you don't delete the branch after merging the pull request it's going to build the branch again.
+* If you are discovering origin pull requests, you may not want to also build the source branches for those pull requests, but it's going to build the branch for each push before creating a pull request.
+* It's going to build the branch again if you don't delete the branch after merging the pull request.
 
 2- `Only branches that are also filed as PRs`
-* Similar to discovering origin pull requests, but discovers the branch rather than the pull request. This means env.GIT_BRANCH will be set to the branch name rather than PR-#. Also, status notifications for these builds will only be applied to the commit and not to the pull request.
+* Similar to discovering origin pull requests, but discovers the branch rather than the pull request. This means env.GIT_BRANCH will be set to the branch name rather than PR-#. Also, status notifications for these builds will only be applied to the commit and not to the pull request. 
+* It's going to run pipeline for the PR and the source branch in the PR, and it is not going to run the pipeline for the target branch after merge.
 
 3-`All branches`
 * Ignores whether the branch is also filed as a pull request and instead discovers all branches on the origin repository.
